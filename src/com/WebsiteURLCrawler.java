@@ -18,7 +18,7 @@ public class WebsiteURLCrawler {
 	private static HashMap<String, String> urlMap = null;
 	private static HashMap<String, String> filterUrlMap = null;
 	private static HashMap<String, String> urlBlackListParams = null;
-	private static String filterDataType[] = {"URL", "JPEG", "PNG", "PDF","UNKNOWN_FILE_TYPE"};
+	private static String filterDataType[] = {"URL", "JPEG", "PNG", "PDF","UNKNOWN_FILE_TYPE", "GIF"};
 	
 	static{
 		urlMap = new HashMap<String, String>();
