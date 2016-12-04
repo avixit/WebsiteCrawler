@@ -27,7 +27,7 @@ public class WebsiteURLCrawler {
 	private static HashMap<String, String> urlMap = null;
 	private static HashMap<String, String> filterUrlMap = null;
 	private static HashMap<String, String> urlBlackListParams = null;
-	private static String filterDataType[] = {"URL", "JPEG", "PNG", "PDF","UNKNOWN_FILE_TYPE", "JS", "GIF"};
+	private static String filterDataType[] = {"External URL's", "JPEG", "PNG", "PDF","UNKNOWN_FILE_TYPE", "JS", "GIF"};
 	
 	private static int dataTypeDisplayLabelLength = 150;
 	
@@ -188,14 +188,14 @@ public class WebsiteURLCrawler {
 			
 			if(params.endsWith(".pdf")){
 			
-				if(params.startsWith("http"))
-					filterUrlMap.put("[External PDF Link] - "+params, filterDataType[3]);
+				if(params.startsWith("/http"))
+					filterUrlMap.put("[External PDF Link] - "+params.substring(1), filterDataType[3]);
 				else
 					filterUrlMap.put(webSiteUrl+params, filterDataType[3]);
 			}
 			
-			if(params.startsWith("http")){
-				filterUrlMap.put(params, filterDataType[0]);
+			if(params.startsWith("/http")){
+				filterUrlMap.put(params.substring(1), filterDataType[0]);
 				urlMap.put(webSiteUrl+params, "SUCCESS");
 			}
 			else{
